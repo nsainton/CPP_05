@@ -1,0 +1,5 @@
+# Dependancies files #
+*.d
+
+# Objects files #
+*.o
