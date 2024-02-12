@@ -40,3 +40,20 @@ unsigned int	Bureaucrat::getGrade() const {
 const std::string &	Bureaucrat::getName() const {
 	return (this->_name);
 }
+
+void			Bureaucrat::UpGrade(){
+	if (this->_grade == 1)
+		throw (GradeTooHighException());
+	--this->_grade;
+}
+
+void			Bureaucrat::DownGrade(){
+	if (this->_grade == 150)
+		throw (GradeTooLowException());
+	++this->_grade;
+}
+
+std::ostream &	operator<<(std::ostream & os, const Bureaucrat & b){
+	os << b.getName() << ", bureaucrat grade " << b.getGrade();
+	return (os);
+}
