@@ -63,6 +63,8 @@ void			Bureaucrat::signForm( Form & f ){
 			std::cout << f.getName() << " because " << "it is already signed";
 			std::cout << std::endl;
 		}
+		else
+			std::cout << this->_name << " signed " << f.getName() << std::endl;
 	}
 	catch (std::exception & e)
 	{
