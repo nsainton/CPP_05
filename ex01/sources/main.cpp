@@ -40,7 +40,7 @@ static void	check_form_loop(){
 		std::cout << "Please enter a sign_grade for your form. Send EOF to quit\n";
 		std::cin >> sign_grade;
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		if (std::cin.eof())
+		if (std::cin.eof() || std::cin.fail())
 		{
 			std::cin.clear(std::cin.goodbit);
 			std::clearerr(stdin);
