@@ -2,8 +2,10 @@
 # define __FORM_H__
 # include <string>
 # include <exception>
+# include "Bureaucrat.h"
 # define FTOOLOW "Where you think you goin' with that fake ass grades. This is too low, get out!"
 # define FTOOHIGH "Who the hell you think this is? A goddamn golden ticket? No such high grades here"
+class	Bureaucrat;
 
 class	Form{
 	const std::string	_name;
@@ -27,7 +29,8 @@ class	Form{
 		bool				isSigned() const;
 		unsigned int		getSignGrade() const;
 		unsigned int		getExecGrade() const;
+		int					beSigned( const Bureaucrat & b );
 };
 
-std::ostream &	operator<<(std::ostream & os, const Form & b);
+std::ostream &	operator<<(std::ostream & os, const Form & f);
 #endif
