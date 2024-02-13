@@ -1,15 +1,18 @@
 #include "Bureaucrat.h"
+#include "Form.h"
 #include <iostream>
 #include <cstdio>
 #include <limits>
 
-static void	check_bureaucrat( const std::string & name, const unsigned int grade)
+static void	check_form( const std::string & name, const unsigned int sign_grade, \
+const unsigned int exec_grade)
 {
-	std::cout << "Trying to create bureaucrat : " << RED << name << "\e[0m";
-	std::cout << " with grade : " << GRN << grade << "\e[0m" << std::endl;
+	std::cout << "Trying to create form : " << RED << name << "\e[0m";
+	std::cout << " with sign grade : " << GRN << sign_grade << "\e[0m";
+	std::cout << " and exec grade : " << GRN << exec_grade << "\e[0m" << std::endl;
 	try
 	{
-		Bureaucrat b(name, grade);
+		Form f(name, sign_grade, exec_grade);
 	}
 	catch (std::exception & e)
 	{
@@ -17,13 +20,14 @@ static void	check_bureaucrat( const std::string & name, const unsigned int grade
 	}
 }
 
-static void	check_bureaucrat_loop(){
+static void	check_form_loop(){
 	std::string		name;
-	unsigned int	grade;
+	unsigned int	sign_grade;
+	unsigned int 	exec_grade;
 
 	while (1)
 	{
-		std::cout << "Please enter a name for your bureaucrat. Enter EXIT to quit\n";
+		std::cout << "Please enter a name for your form. Enter EXIT to quit\n";
 		std::getline(std::cin, name);
 		if (std::cin.eof()){
 			std::cin.clear(std::cin.goodbit);
@@ -33,8 +37,8 @@ static void	check_bureaucrat_loop(){
 		}
 		if (! name.compare("EXIT"))
 			break ;
-		std::cout << "Please enter a grade for your bureaucrat. Send EOF to quit\n";
-		std::cin >> grade;
+		std::cout << "Please enter a sign_grade for your form. Send EOF to quit\n";
+		std::cin >> sign_grade;
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		if (std::cin.eof())
 		{
@@ -43,14 +47,26 @@ static void	check_bureaucrat_loop(){
 			std::cout << "\n";
 			break ;
 		}
-		check_bureaucrat( name, grade );
+		std::cout << "Please enter a exec_grade for your form. Send EOF to quit\n";
+		std::cin >> exec_grade;
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		if (std::cin.eof())
+		{
+			std::cin.clear(std::cin.goodbit);
+			std::clearerr(stdin);
+			std::cout << "\n";
+			break ;
+		}
+		check_form( name, sign_grade , exec_grade );
 	}
 }
 
 int	main(void)
 {
-	check_bureaucrat("Patrick", 151);
-	check_bureaucrat("James", 0);
+	check_form("Groceries list", 120, 168);
+	check_form("Groceries list", 168, 120);
+	check_form("Chores", 0, 1);
+	check_form("Chores", 1, 0);
 	Bureaucrat	b("Bonjour", 2);
 	std::cout << b << std::endl;
 	Bureaucrat	c("Salut", 123);
@@ -76,6 +92,6 @@ int	main(void)
 		++i;
 	}
 	std::cout << "This is the index : " << i << " and this is the bureaucrat : " << b << std::endl;
-	check_bureaucrat_loop();
+	check_form_loop();
 	return (0);
 }
