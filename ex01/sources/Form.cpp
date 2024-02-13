@@ -55,7 +55,8 @@ unsigned int	Form::getExecGrade() const{
 
 std::ostream &	operator<<(std::ostream & os, const Form & f){
 	os << "Form : " << f.getName();
-	os << "\nSigned ? " << f.isSigned();
+	os << "\nSigned ? " << std::boolalpha << f.isSigned();
+	os << std::noboolalpha;
 	os << "\nSign Grade : " << f.getSignGrade();
 	os << "\nExec Grade : " << f.getExecGrade();
 	return (os);
