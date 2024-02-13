@@ -3,3 +3,6 @@
 
 # Objects files #
 *.o
+
+# Vim swap files #
+*.swp
