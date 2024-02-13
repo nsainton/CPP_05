@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := all
 
-NAME := bureaucrat
+NAME := forms
 
 CXX := c++
 
