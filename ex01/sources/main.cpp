@@ -13,6 +13,7 @@ const unsigned int exec_grade)
 	try
 	{
 		Form f(name, sign_grade, exec_grade);
+		std::cout << f << std::endl;
 	}
 	catch (std::exception & e)
 	{
@@ -50,7 +51,7 @@ static void	check_form_loop(){
 		std::cout << "Please enter a exec_grade for your form. Send EOF to quit\n";
 		std::cin >> exec_grade;
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		if (std::cin.eof())
+		if (std::cin.eof() || std::cin.fail())
 		{
 			std::cin.clear(std::cin.goodbit);
 			std::clearerr(stdin);
@@ -67,15 +68,16 @@ int	main(void)
 	check_form("Groceries list", 168, 120);
 	check_form("Chores", 0, 1);
 	check_form("Chores", 1, 0);
-	Bureaucrat	b("Bonjour", 2);
+	Form	b("Bonjour", 2, 4);
 	std::cout << b << std::endl;
-	Bureaucrat	c("Salut", 123);
+	Form	c("Salut", 1, 2);
 	std::cout << c << std::endl;
-	Bureaucrat	d(c);
+	Form	d(c);
 	std::cout << d << std::endl;
-	Bureaucrat	e(c);
+	Form	e(c);
 	e = b;
 	std::cout << e << std::endl;
+	/*
 	int	i(0);
 	while ( i < 2 )
 	{
@@ -92,6 +94,7 @@ int	main(void)
 		++i;
 	}
 	std::cout << "This is the index : " << i << " and this is the bureaucrat : " << b << std::endl;
+	*/
 	check_form_loop();
 	return (0);
 }
