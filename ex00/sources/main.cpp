@@ -63,9 +63,10 @@ int	main(void)
 	int	i(0);
 	while ( i < 2 )
 	{
-		std::cout << "This is the index : " << i << " and this is the bureaucrat : " << b << std::endl;
+		std::cout << "This is the index : " << i << "\nthis is the bureaucrat : " << b << std::endl;
 		try
 		{
+			std::cout << "Trying to upgrade bureaucrat : " << RED << b.getName() << "\e[0m" << std::endl;
 			b.UpGrade();
 		}
 		catch (std::exception & e)
