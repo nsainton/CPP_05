@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := all
 
-NAME := default
+NAME := forms
 
 CXX := c++
 
