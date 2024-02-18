@@ -1,5 +1,5 @@
-#ifndef __FORM_H__
-# define __FORM_H__
+#ifndef __AFORM_H__
+# define __AFORM_H__
 # include <string>
 # include <exception>
 # include "Bureaucrat.h"
@@ -7,18 +7,18 @@
 # define FTOOHIGH "Who the hell you think this is? A goddamn golden ticket? No such high grades here"
 class	Bureaucrat;
 
-class	Form{
+class	AForm{
 	const std::string	_name;
 	bool				_signed;
 	const unsigned int	_sign_grade;
 	const unsigned int	_exec_grade;
 
 	public:
-		Form( const std::string & name, const unsigned int sign_grade, \
+		AForm( const std::string & name, const unsigned int sign_grade, \
 		const unsigned int exec_grade );
-		Form( const Form & );
-		Form& operator=( const Form & );
-		virtual ~Form();
+		AForm( const AForm & );
+		AForm& operator=( const AForm & );
+		virtual ~AForm();
 		class	GradeTooHighException : public std::exception{
 			virtual const char * what() const throw();
 		};
@@ -32,5 +32,5 @@ class	Form{
 		int					beSigned( const Bureaucrat & b );
 };
 
-std::ostream &	operator<<(std::ostream & os, const Form & f);
+std::ostream &	operator<<(std::ostream & os, const AForm & f);
 #endif

@@ -2,7 +2,7 @@
 # define __BUREAUCRAT_H__
 # include <string>
 # include <exception>
-# include "Form.h"
+# include "AForm.h"
 # define TOOHIGH "The grade required is too high. The sky is out of reach for you my G"
 # define TOOLOW "The grade required is too low. Hitting rock bottom won't lead you nowhere"
 # define BLK "\e[0;30m"
@@ -14,7 +14,7 @@
 # define CYN "\e[0;36m"
 # define WHT "\e[0;37m"
 
-class	Form;
+class	AForm;
 
 class	Bureaucrat{
 	const std::string		_name;
@@ -35,7 +35,7 @@ class	Bureaucrat{
 		const std::string &	getName() const ;
 		void				UpGrade();
 		void				DownGrade();
-		void				signForm( Form & f );
+		void				signForm( AForm & f );
 };
 
 std::ostream &	operator<<(std::ostream & os, const Bureaucrat & b);

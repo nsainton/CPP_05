@@ -1,5 +1,5 @@
 #include "Bureaucrat.h"
-#include "Form.h"
+#include "AForm.h"
 #include <iostream>
 #include <cstdio>
 #include <limits>
@@ -12,7 +12,7 @@ const unsigned int exec_grade)
 	std::cout << " and exec grade : " << GRN << exec_grade << "\e[0m" << std::endl;
 	try
 	{
-		Form f(name, sign_grade, exec_grade);
+		AForm f(name, sign_grade, exec_grade);
 		std::cout << f << std::endl;
 	}
 	catch (std::exception & e)
@@ -68,13 +68,13 @@ int	main(void)
 	check_form("Groceries list", 168, 120);
 	check_form("Chores", 0, 1);
 	check_form("Chores", 1, 0);
-	Form	b("Bonjour", 2, 4);
+	AForm	b("Bonjour", 2, 4);
 	std::cout << b << std::endl;
-	Form	c("Salut", 1, 2);
+	AForm	c("Salut", 1, 2);
 	std::cout << c << std::endl;
-	Form	d(c);
+	AForm	d(c);
 	std::cout << d << std::endl;
-	Form	e(c);
+	AForm	e(c);
 	e = b;
 	std::cout << e << std::endl;
 	/*

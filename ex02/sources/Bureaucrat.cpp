@@ -1,5 +1,5 @@
 #include "Bureaucrat.h"
-#include "Form.h"
+#include "AForm.h"
 #include <iostream>
 #include <string>
 
@@ -54,7 +54,7 @@ void			Bureaucrat::DownGrade(){
 	++this->_grade;
 }
 
-void			Bureaucrat::signForm( Form & f ){
+void			Bureaucrat::signForm( AForm & f ){
 	try
 	{
 		if (f.beSigned(*this))
