@@ -63,6 +63,13 @@ int				AForm::beSigned( const Bureaucrat & b )
 	return (0);
 }
 
+int				AForm::executable( const Bureaucrat & b )
+{
+	if (this->_signed && b.getGrade() <= this->_execute_grade)
+		return (1);
+	return (0);
+}
+
 std::ostream &	operator<<(std::ostream & os, const AForm & f){
 	os << "AForm : " << f.getName();
 	os << "\nSigned ? " << std::boolalpha << f.isSigned();

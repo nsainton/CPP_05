@@ -30,6 +30,8 @@ class	AForm{
 		unsigned int		getSignGrade() const;
 		unsigned int		getExecGrade() const;
 		int					beSigned( const Bureaucrat & b );
+		int					executable( const Bureaucrat & b ) const;
+		virtual int			execute( const Bureaucrat & executor ) const = 0;
 };
 
 std::ostream &	operator<<(std::ostream & os, const AForm & f);
