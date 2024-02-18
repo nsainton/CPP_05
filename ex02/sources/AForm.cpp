@@ -63,9 +63,9 @@ int				AForm::beSigned( const Bureaucrat & b )
 	return (0);
 }
 
-int				AForm::executable( const Bureaucrat & b )
+int				AForm::executable( const Bureaucrat & b ) const
 {
-	if (this->_signed && b.getGrade() <= this->_execute_grade)
+	if (this->_signed && b.getGrade() <= this->_exec_grade)
 		return (1);
 	return (0);
 }
