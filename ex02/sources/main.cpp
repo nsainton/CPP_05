@@ -1,19 +1,46 @@
 #include "Bureaucrat.h"
 #include "AForm.h"
+#include "PresidentialPardonForm.h"
+#include "RobotomyRequestForm.h"
+#include "ShrubberyCreationForm.h"
 #include <iostream>
 #include <cstdio>
 #include <limits>
 
-static void	check_form( const std::string & name, const unsigned int sign_grade, \
-const unsigned int exec_grade)
+static void	exec_forms( const Bureaucrat & b , const std::string & target )
 {
-	std::cout << "Trying to create form : " << RED << name << "\e[0m";
-	std::cout << " with sign grade : " << GRN << sign_grade << "\e[0m";
-	std::cout << " and exec grade : " << GRN << exec_grade << "\e[0m" << std::endl;
+	ShrubberyCreationForm	s(target);
+	RobotomyRequestForm		r(target);
+	PresidentialPardonForm	p(target);
+	AForm					*forms[3];
+
+	*forms = &s;
+	*(forms + 1) = &r;
+	*(forms + 2) = &p;
+	for (int i = 0; i < 3; ++i)
+	{
+		try
+		{
+			(*(forms + i))->beSigned(b);
+			std::cout << **(forms + i) << std::endl;
+			(*(forms + i))->execute(b);
+		}
+		catch (std::exception & e)
+		{
+			std::cout << e.what();
+		}
+	}
+}
+
+static void	check_form( const std::string & name, const unsigned int grade, const std::string & target)
+{
+	std::cout << "Creating Bureaucrat : " << RED << name << "\e[0m";
+	std::cout << " with exec grade : " << GRN << grade << "\e[0m" << std::endl;
 	try
 	{
-		AForm f(name, sign_grade, exec_grade);
-		std::cout << f << std::endl;
+		Bureaucrat b(name, grade);
+		std::cout << b << std::endl;
+		exec_forms(b, target);
 	}
 	catch (std::exception & e)
 	{
@@ -21,6 +48,7 @@ const unsigned int exec_grade)
 	}
 }
 
+/*
 static void	check_form_loop(){
 	std::string		name;
 	unsigned int	sign_grade;
@@ -61,9 +89,12 @@ static void	check_form_loop(){
 		check_form( name, sign_grade , exec_grade );
 	}
 }
+*/
 
 int	main(void)
 {
+	check_form("Bill", 4, "Salut");
+	/*
 	check_form("Groceries list", 120, 168);
 	check_form("Groceries list", 168, 120);
 	check_form("Chores", 0, 1);
@@ -77,6 +108,7 @@ int	main(void)
 	AForm	e(c);
 	e = b;
 	std::cout << e << std::endl;
+	*/
 	/*
 	int	i(0);
 	while ( i < 2 )
@@ -95,6 +127,6 @@ int	main(void)
 	}
 	std::cout << "This is the index : " << i << " and this is the bureaucrat : " << b << std::endl;
 	*/
-	check_form_loop();
+	//check_form_loop();
 	return (0);
 }
