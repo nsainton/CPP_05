@@ -58,16 +58,18 @@ int				AForm::beSigned( const Bureaucrat & b )
 	if (this->_signed)
 		return (1);
 	if (b.getGrade() > this->_sign_grade)
-		throw (GradeTooLowException());
+		throw ( GradeTooLowException() );
 	this->_signed = true;
 	return (0);
 }
 
-int				AForm::executable( const Bureaucrat & b ) const
+int				AForm::execute( const Bureaucrat & executor ) const
 {
-	if (this->_signed && b.getGrade() <= this->_exec_grade)
-		return (1);
-	return (0);
+	if (this->_signed && executor.getGrade() <= this->_exec_grade)
+		return (this->doAction());
+	if (! this->_signed)
+		return (0);
+	throw( Bureaucrat::GradeTooLowException() );
 }
 
 std::ostream &	operator<<(std::ostream & os, const AForm & f){
