@@ -19,7 +19,7 @@ static void	exec_forms( const Bureaucrat & b , const std::string & target )
 	*(forms + 2) = &p;
 	for (int i = 0; i < 3; ++i)
 	{
-		std::cout << i << std::endl;
+		std::cout << "This is the form number : " << i << std::endl;
 		std::cout << **(forms + i) << std::endl;
 		try
 		{
@@ -28,7 +28,7 @@ static void	exec_forms( const Bureaucrat & b , const std::string & target )
 		}
 		catch (std::exception & e)
 		{
-			std::cout << e.what();
+			std::cout << e.what() << std::endl;
 		}
 	}
 }
