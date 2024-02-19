@@ -2,14 +2,14 @@
 # define __SHRUBBERYCREATIONFORM_H__
 # include "AForm.h"
 # define TREE ""\
-"    0    "\
-"   000   "\
-"  00000  "\
-" 0000000 "\
-"   ::    "\
-"   ::    "\
-"   ::    "\
-"__/||\\__"
+"    0    \n"\
+"   000   \n"\
+"  00000  \n"\
+" 0000000 \n"\
+"   ::    \n"\
+"   ::    \n"\
+"   ::    \n"\
+"__/||\\__\n"
 
 class	ShrubberyCreationForm : public AForm{
 	const std::string	_target;
