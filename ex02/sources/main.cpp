@@ -19,10 +19,11 @@ static void	exec_forms( const Bureaucrat & b , const std::string & target )
 	*(forms + 2) = &p;
 	for (int i = 0; i < 3; ++i)
 	{
+		std::cout << i << std::endl;
+		std::cout << **(forms + i) << std::endl;
 		try
 		{
 			(*(forms + i))->beSigned(b);
-			std::cout << **(forms + i) << std::endl;
 			(*(forms + i))->execute(b);
 		}
 		catch (std::exception & e)
@@ -39,13 +40,14 @@ static void	check_form( const std::string & name, const unsigned int grade, cons
 	try
 	{
 		Bureaucrat b(name, grade);
-		std::cout << b << std::endl;
-		exec_forms(b, target);
 	}
 	catch (std::exception & e)
 	{
 		std::cout << e.what() << std::endl;
 	}
+	Bureaucrat b(name, grade);
+	std::cout << b << std::endl;
+	exec_forms(b, target);
 }
 
 /*
@@ -93,7 +95,7 @@ static void	check_form_loop(){
 
 int	main(void)
 {
-	check_form("Bill", 4, "Salut");
+	check_form("Bill", 95, "Salut");
 	/*
 	check_form("Groceries list", 120, 168);
 	check_form("Groceries list", 168, 120);
