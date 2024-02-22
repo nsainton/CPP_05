@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := all
 
-NAME := default
+NAME := forms
 
 CXX := c++
 
@@ -22,7 +22,7 @@ OBJECTS := $(addprefix $(OBJECTS_DIR)/, $(OBJECTS_NAMES))
 
 DEPENDANCIES_DIR := dependancies
 
-DEPENDANCIES := $(patsubst %.c, $(DEPENDANCIES_DIR/%.d), $(SOURCES_NAMES))
+DEPENDANCIES := $(patsubst %.cpp, $(DEPENDANCIES_DIR)/%.d, $(SOURCES_NAMES))
 
 INCLUDES := includes
 
