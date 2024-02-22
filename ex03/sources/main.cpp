@@ -3,6 +3,7 @@
 #include "PresidentialPardonForm.h"
 #include "RobotomyRequestForm.h"
 #include "ShrubberyCreationForm.h"
+#include "Intern.h"
 #include <iostream>
 #include <cstdio>
 #include <limits>
@@ -49,18 +50,16 @@ static void	choose_form( AForm *form, const Bureaucrat & b, unsigned int i)
 		++j;
 	}
 }
-static void	exec_forms( const Bureaucrat & b , const std::string & target )
+static void	exec_forms( const Bureaucrat & b , const Intern & x, const std::string & target )
 {
 	OPEN("Forms Creation");
-	ShrubberyCreationForm	s(target);
-	RobotomyRequestForm		r(target);
-	PresidentialPardonForm	p(target);
-	CLOSE("Forms Creation");
 	AForm					*forms[3];
 
-	*forms = &s;
-	*(forms + 1) = &r;
-	*(forms + 2) = &p;
+	*forms = x.makeForm( "ShrubberyCreation", target );
+	*(forms + 1) = x.makeForm( "RobotomyRequest", target );
+	*(forms + 2) = x.makeForm( "PresidentialPardon", target );
+	x.makeForm( "NonExistentForm", target );
+	CLOSE("Forms Creation");
 	OPEN("Forms Testing");
 	for (int i = 0; i < 3; ++i)
 	{
@@ -68,6 +67,11 @@ static void	exec_forms( const Bureaucrat & b , const std::string & target )
 	}
 	CLOSE("Forms Testing");
 	OPEN("Forms Destruction");
+	for (int i = 0; i < 3; ++i)
+	{
+		delete *(forms + i);
+	}
+	CLOSE("Forms Destruction");
 }
 
 static void	check_form( const std::string & name, const unsigned int grade, const std::string & target)
@@ -86,8 +90,10 @@ static void	check_form( const std::string & name, const unsigned int grade, cons
 	}
 	Bureaucrat b(name, grade);
 	std::cout << b << std::endl;
-	exec_forms(b, target);
-	CLOSE("Forms Destruction");
+	OPEN("Intern Creation");
+	Intern	x;
+	CLOSE("Intern Creation");
+	exec_forms(b, x, target);
 }
 
 static void	check_form_loop(){
