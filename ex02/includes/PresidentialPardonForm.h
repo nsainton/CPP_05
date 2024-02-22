@@ -4,7 +4,7 @@
 # include <string>
 
 class	PresidentialPardonForm : public AForm{
-	const std::string & _target;
+	std::string	_target;
 	public:
 		PresidentialPardonForm( const std::string & target );
 		PresidentialPardonForm( const PresidentialPardonForm & );

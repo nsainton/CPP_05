@@ -19,9 +19,9 @@ _sign_grade(other._sign_grade), _exec_grade(other._exec_grade){
 AForm&	AForm::operator=( const AForm & other ){
 	std::clog << "AForm Copy Assignment Operator Called" << std::endl;
 	_signed = other._signed;
-	const_cast<unsigned int &>(this->_sign_grade) = other._sign_grade;
-	const_cast<unsigned int &>(this->_exec_grade) = other._exec_grade;
-	const_cast<std::string &>(this->_name) = other._name;
+	this->_sign_grade = other._sign_grade;
+	this->_exec_grade = other._exec_grade;
+	this->_name = other._name;
 	return (*this);
 }
 

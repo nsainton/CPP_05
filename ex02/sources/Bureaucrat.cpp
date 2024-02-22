@@ -17,7 +17,7 @@ Bureaucrat::Bureaucrat( const Bureaucrat & other ) : _name(other._name), _grade(
 
 Bureaucrat&	Bureaucrat::operator=( const Bureaucrat & other ){
 	std::clog << "Bureaucrat Copy Assignment Operator Called" << std::endl;
-	const_cast<std::string &>(this->_name) = other._name;
+	this->_name = other._name;
 	this->_grade = other._grade;
 	return (*this);
 }

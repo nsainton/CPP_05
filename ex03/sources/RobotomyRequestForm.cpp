@@ -17,7 +17,7 @@ AForm( other ), _target( other._target ){
 RobotomyRequestForm&	RobotomyRequestForm::operator=( const RobotomyRequestForm & other ){
 	std::clog << "RobotomyRequestForm Copy Assignment Operator Called" << std::endl;
 	AForm::operator=(other);
-	const_cast<std::string &>(this->_target) = other._target;
+	this->_target = other._target;
 	return (*this);
 }
 

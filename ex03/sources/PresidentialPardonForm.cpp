@@ -14,7 +14,7 @@ AForm( other ), _target ( other._target ){
 PresidentialPardonForm&	PresidentialPardonForm::operator=( const PresidentialPardonForm & other ){
 	std::clog << "PresidentialPardonForm Copy Assignment Operator Called" << std::endl;
 	AForm::operator=( other );
-	const_cast<std::string &>(this->_target) = other._target;
+	this->_target = other._target;
 	return (*this);
 }
 

@@ -4,7 +4,7 @@
 #include "AForm.h"
 
 class	RobotomyRequestForm : public AForm{
-	const std::string	_target;
+	std::string	_target;
 
 	public:
 		RobotomyRequestForm( const std::string & target );

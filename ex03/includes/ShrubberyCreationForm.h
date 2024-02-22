@@ -12,7 +12,7 @@
 "__/||\\__\n"
 
 class	ShrubberyCreationForm : public AForm{
-	const std::string	_target;
+	std::string	_target;
 
 	public:
 		ShrubberyCreationForm( const std::string & target );
