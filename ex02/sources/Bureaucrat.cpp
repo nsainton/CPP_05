@@ -54,7 +54,7 @@ void			Bureaucrat::DownGrade(){
 	++this->_grade;
 }
 
-void			Bureaucrat::signForm( AForm & f ){
+void			Bureaucrat::signForm( AForm & f ) const {
 	try
 	{
 		if (f.beSigned(*this))
@@ -74,8 +74,7 @@ void			Bureaucrat::signForm( AForm & f ){
 	}
 }
 
-void			Bureaucrat::executeForm( AForm const & form ) const
-{
+void			Bureaucrat::executeForm( AForm const & form ) const {
 	try
 	{
 		form.execute( *this );
