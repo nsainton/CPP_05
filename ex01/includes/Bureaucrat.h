@@ -35,7 +35,7 @@ class	Bureaucrat{
 		const std::string &	getName() const ;
 		void				UpGrade();
 		void				DownGrade();
-		void				signForm( Form & f );
+		void				signForm( Form & f ) const ;
 };
 
 std::ostream &	operator<<(std::ostream & os, const Bureaucrat & b);
