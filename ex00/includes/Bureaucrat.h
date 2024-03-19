@@ -15,8 +15,9 @@
 
 
 class	Bureaucrat{
-	std::string		_name;
-	unsigned int	_grade;
+	const std::string	_name;
+	unsigned int		_grade;
+	Bureaucrat();
 
 	public:
 		Bureaucrat( const std::string & name, unsigned int grade );
