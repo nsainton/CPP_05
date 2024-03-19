@@ -3,8 +3,12 @@
 #include <iostream>
 #include <string>
 
-Bureaucrat::Bureaucrat( const std::string & name, const unsigned int grade ) : _name(name), _grade(grade){
+Bureaucrat::Bureaucrat() : _name(""), _grade(150) {
 	std::clog << "Bureaucrat Default Constructor Called" << std::endl;
+}
+
+Bureaucrat::Bureaucrat( const std::string & name, const unsigned int grade ) : _name(name), _grade(grade){
+	std::clog << "Bureaucrat Constructor Called" << std::endl;
 	if (grade < 1)
 		throw (GradeTooHighException());
 	if (grade > 150)
@@ -17,7 +21,6 @@ Bureaucrat::Bureaucrat( const Bureaucrat & other ) : _name(other._name), _grade(
 
 Bureaucrat&	Bureaucrat::operator=( const Bureaucrat & other ){
 	std::clog << "Bureaucrat Copy Assignment Operator Called" << std::endl;
-	this->_name = other._name;
 	this->_grade = other._grade;
 	return (*this);
 }

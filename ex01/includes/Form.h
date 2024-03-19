@@ -8,10 +8,11 @@
 class	Bureaucrat;
 
 class	Form{
-	std::string			_name;
-	bool				_signed;
-	unsigned int		_sign_grade;
-	unsigned int		_exec_grade;
+	const std::string		_name;
+	bool					_signed;
+	const unsigned int		_sign_grade;
+	const unsigned int		_exec_grade;
+	Form();
 
 	public:
 		Form( const std::string & name, const unsigned int sign_grade, \
