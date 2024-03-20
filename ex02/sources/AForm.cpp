@@ -1,10 +1,14 @@
 #include "AForm.h"
 #include <iostream>
 
+AForm::AForm() : _name(""), _signed(false), _sign_grade(1), _exec_grade(1){
+	std::clog << "AForm Default Constructor Called" << std::endl;
+}
+
 AForm::AForm( const std::string & name, const unsigned int sign_grade, \
 const unsigned int exec_grade ) : _name(name), _signed(false), _sign_grade(sign_grade), \
 _exec_grade(exec_grade){
-	std::clog << "AForm Default Constructor Called" << std::endl;
+	std::clog << "AForm Constructor Called" << std::endl;
 	if (sign_grade < 1 || exec_grade < 1)
 		throw (GradeTooHighException());
 	if (sign_grade > 150 || exec_grade > 150)
@@ -19,9 +23,6 @@ _sign_grade(other._sign_grade), _exec_grade(other._exec_grade){
 AForm&	AForm::operator=( const AForm & other ){
 	std::clog << "AForm Copy Assignment Operator Called" << std::endl;
 	_signed = other._signed;
-	this->_sign_grade = other._sign_grade;
-	this->_exec_grade = other._exec_grade;
-	this->_name = other._name;
 	return (*this);
 }
 
