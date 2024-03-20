@@ -2,9 +2,13 @@
 #include <iostream>
 #include <fstream>
 
+ShrubberyCreationForm::ShrubberyCreationForm() : _target(""){
+	std::clog << "ShrubberyCreationForm Default Constructor Called" << std::endl;
+}
+
 ShrubberyCreationForm::ShrubberyCreationForm( const std::string & target ) : \
 AForm( "ShruberryCreation", 145, 137), _target(target){
-	std::clog << "ShrubberyCreationForm Default Constructor Called" << std::endl;
+	std::clog << "ShrubberyCreationForm Constructor Called" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm & other ) : \

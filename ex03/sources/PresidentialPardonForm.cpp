@@ -1,9 +1,13 @@
 #include "PresidentialPardonForm.h"
 #include <iostream>
 
+PresidentialPardonForm::PresidentialPardonForm() : _target("") {
+	std::clog << "PresidentialPardonForm Default Constructor Called" << std::endl;
+}
+
 PresidentialPardonForm::PresidentialPardonForm( const std::string & target ) : \
 AForm( "PresidentialPardon", 25, 5 ), _target( target ){
-	std::clog << "PresidentialPardonForm Default Constructor Called" << std::endl;
+	std::clog << "PresidentialPardonForm Constructor Called" << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & other ) : \

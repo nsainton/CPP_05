@@ -8,12 +8,13 @@
 class	Bureaucrat;
 
 class	AForm{
-	std::string		_name;
-	bool			_signed;
-	unsigned int	_sign_grade;
-	unsigned int	_exec_grade;
+	const std::string	_name;
+	bool				_signed;
+	const unsigned int	_sign_grade;
+	const unsigned int	_exec_grade;
 
 	public:
+		AForm();
 		AForm( const std::string & name, const unsigned int sign_grade, \
 		const unsigned int exec_grade );
 		AForm( const AForm & );

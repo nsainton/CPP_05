@@ -4,9 +4,13 @@
 #include <cstdlib>
 #include <ctime>
 
+RobotomyRequestForm::RobotomyRequestForm() : _target(""){
+	std::clog << "RobotomyRequestForm Default Constructor Called" << std::endl;
+}
+
 RobotomyRequestForm::RobotomyRequestForm( const std::string & target ) : \
 AForm( "RobotomyRequest", 72, 45 ), _target( target ){
-	std::clog << "RobotomyRequestForm Default Constructor Called" << std::endl;
+	std::clog << "RobotomyRequestForm Constructor Called" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & other ) : \
