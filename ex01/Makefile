@@ -10,7 +10,7 @@ SOURCES_DIR := sources
 
 SOURCES_SUBDIRS := $(shell find $(SOURCES_DIR) -type d)
 
-SOURCES_NAMES := $(subst $(SOURCES_DIR)/,, $(foreach dir, $(SOURCES_SUBDIRS), $(wildcard $(dir)/*.cpp)))
+SOURCES_NAMES := Bureaucrat.cpp Form.cpp main.cpp
 
 SOURCES := $(addprefix $(SOURCES_DIR)/, $(SOURCES_NAMES))
 
